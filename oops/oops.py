@@ -26,3 +26,23 @@ class Student:
 s1 = Student()
 print(s1)
 # O/p - <__main__.Student object at 0x0000019E95518980>
+# you can fetch data or attributes of the object using dot operator.
+print(s1.name)
+print(s1.age)
+print(s1.gender)
+# O/p - Blank 0 Blank , They are empty because we haven't assigned any values to the attributes yet.
+# So we need to set values.
+
+s1.name = "Pritam"
+s1.age = 27
+s1.gender = "Male"
+print(s1.name,s1.age,s1.gender)
+# O/p - Pritam 27 Male
+
+s2 = Student()
+print(s2.name,s2.age,s2.gender)
+# o/p - Blank 0 Blank , They are empty because we haven't assigned any values to the attributes yet.
+
+# This also means that s2 doesn't have access to s1's data. Each object has its own data.
+
+#EVERYTHING UP UNTIL NOW IS BAD CODE. NO OOP PRINCIPLES HAVE BEEN FOLLOWED.
