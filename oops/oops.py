@@ -180,3 +180,27 @@ ss1.display_data()
 # What we need is a way to ask for data on the line the object is created.
 # So we can solve this problem by using a special method called __init__(), aka INITIALIZER OR CONSTRUCTOR.
 
+class Init_Student:
+    def __init__(self,name :str,age :int,gender :str) -> None:
+        # This method is automatically called when an object is created.
+        # It is used to initialize the attributes of the object.
+        print("This is an intializer / constructor")
+        self.name = name
+        self.age = age
+        self.gender = gender
+
+    def display_data(self) -> None:
+        # Always a good practice to add return type to the method. Will help other developers.
+        print(f"My name is {self.name}, age is {self.age} and gender is {self.gender}")
+
+    def get_age(self) -> int:
+        return self.age
+
+is1 = Init_Student("New",15,"Female")
+is1.display_data()
+# This is an intializer / constructor
+# My name is New, age is 15 and gender is Female
+is2 = Init_Student("Old",30,"Male")
+print(is2.get_age())
+# This is an intializer / constructor
+# 30
