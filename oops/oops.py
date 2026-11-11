@@ -95,8 +95,8 @@ class Another_Student:
         print(f"My name is {self.name}, age is {self.age} and gender is {self.gender}")
 
 as1 = Another_Student()
-as1.set_info()
-as1.display_data()
+#as1.set_info()
+#as1.display_data()
 # Enter Name: Pritam 
 # Enter Age: 27
 # Enter Gender: Male
@@ -104,4 +104,58 @@ as1.display_data()
 
 # The above code is much more organised and efficient. 
 # We can create as many objects as we want and set their data using the set_info method.
+# But this code can be optimised even further. We can pass the data as parameters to the set_info method instead of taking input from the user.
+
+class Good_Student:
+    name = ""
+    age = 0
+    gender = ""
+
+    def set_info(self,name,age,gender):
+        #self.name refers to the attribute of the object, but name refers to the parameter passed to the method.
+        # All we're doing is assigning parameter values to the attributes of the object.
+
+        self.name = name
+        self.age = age
+        self.gender = gender
+
+    def display_data(self):
+        print(f"My name is {self.name}, age is {self.age} and gender is {self.gender}")
+
+gs1 = Good_Student()
+gs1.set_info("Pritam",27,"Male")
+gs1.display_data()
+#My name is Pritam, age is 27 and gender is Male
+
+# Let's learn about ANOTATIONS. Annotations are a way to add metadata to your code. 
+# Any new developer in your team can easily understand what type of data is expected in the parameters of a method.
+
+
+class Annotation_Student:
+    name = ""
+    age = 0
+    gender = ""
+
+    def set_info(self,name :str,age :int,gender :str):
+        #Python won't throw an error if you pass a different type of data to the method, but it will give a warning.
+        #It's a good practice to use annotations to make your code more readable and maintainable.
+        self.name = name
+        self.age = age
+        self.gender = gender
+
+    def display_data(self):
+        print(f"My name is {self.name}, age is {self.age} and gender is {self.gender}")
+
+gs1 = Annotation_Student()
+gs1.set_info("Pritam",31,"Male")
+gs1.display_data()
+#My name is Pritam, age is 31 and gender is Male
+
+# Process suggests to first set then display, but what if I don't set and directly display? 
+# It will give blank values. Why does this happen? 
+# Because the attributes are set to default values when the object is created.
+
+# If we delete the 1st default values, then we get a "AttributeError: 'Annotation_Student' object has no attribute 'name'" error.
+# So using the current way of code we are UPDATING the attributes of the object after it is created. 
+# But instead of UPDATING we can directly set the attributes of the object when it is created.
 
