@@ -82,5 +82,26 @@ ns2.display_data()
 # Another Problem - Every time we create a new object, we have to set the values of the attributes manually. 
 # This is not efficient, we can solve it by creating a new method.
 
+class Another_Student:
+    name = ""
+    age = 0
+    gender = ""
+    def set_info(self):
+        self.name = input("Enter Name: ")
+        self.age = int(input("Enter Age: "))
+        self.gender = input("Enter Gender: ")
 
+    def display_data(self):
+        print(f"My name is {self.name}, age is {self.age} and gender is {self.gender}")
+
+as1 = Another_Student()
+as1.set_info()
+as1.display_data()
+# Enter Name: Pritam 
+# Enter Age: 27
+# Enter Gender: Male
+# My name is Pritam, age is 27 and gender is Male
+
+# The above code is much more organised and efficient. 
+# We can create as many objects as we want and set their data using the set_info method.
 
