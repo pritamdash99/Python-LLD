@@ -159,3 +159,24 @@ gs1.display_data()
 # So using the current way of code we are UPDATING the attributes of the object after it is created. 
 # But instead of UPDATING we can directly set the attributes of the object when it is created.
 
+class Set_Student:
+    def set_info(self,name :str,age :int,gender :str):
+        # Here we directly CREATE the attributes of the object when object is created. NO UPDATING.
+        self.name = name
+        self.age = age
+        self.gender = gender
+
+    def display_data(self):
+        print(f"My name is {self.name}, age is {self.age} and gender is {self.gender}")
+
+ss1 = Set_Student()
+ss1.set_info("Student 1",12,"Male")
+ss1.display_data()
+#My name is Student 1, age is 12 and gender is Male
+
+# As humans, there is a possibility we might forget to SET the attributes of the object after it is created.
+# This will always throw error when we try to display the data.
+ 
+# What we need is a way to ask for data on the line the object is created.
+# So we can solve this problem by using a special method called __init__(), aka INITIALIZER OR CONSTRUCTOR.
+
