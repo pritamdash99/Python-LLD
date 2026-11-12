@@ -13,3 +13,28 @@ Real life example -
 Animal class has eat() and sleep() methods. 
 Dog and Cat class inherit these and Dog adds bark(), Cat adds meow() methods.
 """ 
+class Animal:
+    def eat(self):
+        print("This animal is eating")
+
+    def sleep(self):
+        print("This animal is sleeping")
+
+class Dog(Animal):
+    def bark(self):
+        print("Dog is barking")
+
+dog = Dog()
+dog.bark()
+dog.eat()
+dog.sleep()
+# Dog is barking
+# This animal is eating
+# This animal is sleeping
+
+animal = Animal()
+animal.eat()
+animal.sleep()
+# This animal is eating
+# This animal is sleeping
+
