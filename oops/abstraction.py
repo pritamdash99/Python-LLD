@@ -35,6 +35,7 @@ class Shape(ABC):
 
 #----------------------
 # Let's start by creating a Rectangle but only implementing 1 method area()
+"""
 class Rectangle(Shape):
 
     def __init__(self, length: int, breadth: int) -> None:
@@ -50,3 +51,44 @@ rect.area()
 
 # EVERY CLASS INHERTING AN ABSTRACT CLASS = CONCRETE CLASS
 
+"""
+#--------------------------------
+
+class Rectangle(Shape):
+
+    def __init__(self, length: int, breadth: int) -> None:
+        self.length = length
+        self.breadth = breadth
+
+    def area(self) -> None:
+        print(self.length * self.breadth)
+
+    def perimeter(self) -> None:
+        print(2 * (self.length + self.breadth))
+
+rect = Rectangle(5,2) 
+print("Rectangle Details - ")
+rect.area()
+rect.perimeter()
+# Rectangle Details - 
+# 10
+# 14
+
+class Circle(Shape):
+
+    def __init__(self, radius: int) -> None:
+        self.radius = radius
+
+    def area(self) -> None:
+        print(2 * 3.14 * self.radius)
+
+    def perimeter(self) -> None:
+        print(self.radius ** 2)
+
+circle = Circle(5)
+print("Circle Details - ")
+circle.area()
+circle.perimeter()
+# Circle Details - 
+# 31.400000000000002
+# 25
