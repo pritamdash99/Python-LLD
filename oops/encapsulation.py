@@ -45,3 +45,31 @@ acc.balance = 10000
 acc.withdraw(3000)
 # 3000 Withdraw Success, Balance = 7000
 # This should not be possible. The balance attribute should be "Private", should only be visible not editable by outside world.
+
+#----------------------------
+# Inorder to make any attribute PRIVATE - just add "__" as prefix, so "self.__balance"
+
+class New_Bank:
+    def __init__(self, name: str, balance: int) -> None:
+        self.name = name
+        self.__balance = balance #This attribute is now private aka immutable outside said class.
+        
+    def deposit(self, amount:int) ->None:
+        self.__balance += amount
+        print(f"Amount deposited = {amount}, balance = {self.__balance}")
+
+    def withdraw(self, amount):
+        if amount > self.__balance:
+            print(f"Withdraw Declined : Insufficient Fund, Current Balance = {self.__balance}")
+        else:
+            self.__balance -= amount
+            print(f"{amount} Withdraw Success, Balance = {self.__balance}")
+
+acc_new = New_Bank("Pritam", 1000)
+acc_new.__balance = 100000
+acc_new.withdraw(3000)
+# Withdraw Declined : Insufficient Fund, Current Balance = 1000
+# The balance attribute couldnot be accessed from outside class.
+# So, how to print balance attribute now that it is inaccessible via object.balance
+# You use "getters" aka attribute_getting_methods() to get attributes and 
+# "setters" aka attribute_setting_methods() to set attributes. 
