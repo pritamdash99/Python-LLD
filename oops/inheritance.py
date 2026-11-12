@@ -42,6 +42,7 @@ animal.sleep()
 #If all animals need name and age attributes, we can add them to the parent class.
 class New_Animal:
     def __init__(self, name: str, age: int) -> None:
+        print("This is animal init")
         self.name = name
         self.age = age
 
@@ -59,4 +60,40 @@ class Cat(New_Animal):
 
 Cat1 = Cat("Tom", 5) #Even though Cat class doesn't have init, it inherits the init method from New_Animal class.
 Cat1.display_info()
+#This is animal init
 #Cat name is Tom and age is 5
+
+#Let's say we need to add a breed attribute to Dog class. As Penguines and Girafs are animals but they don't have breeds.
+
+class New_Dog(New_Animal):
+    def __init__(self):
+        print("This is dog init")
+
+    def bark(self):
+        print("Dog is barking")
+
+    def display_info(self):
+        print(f"Dog name is {self.name}, age is {self.age} and breed is {self.breed}")
+
+#new_dog = New_Dog()
+#new_dog.display_info()
+#This is dog init
+#AttributeError: 'New_Dog' object has no attribute 'name'
+#Animal init didnot run, hence name and age attributes never got created. 
+
+#To solve this issue, we need to take neccessary attributes while setting Dog and sending them to Animal init using super() method.
+class Good_Dog(New_Animal):
+    def __init__(self, name: str, age: int, breed: str) -> None:
+        super().__init__(name,age) #This will call the init method of New_Animal class and create name and age attributes.
+        self.breed = breed
+
+    def bark(self):
+        print("Dog is barking")
+
+    def display_info(self):
+        print(f"Dog name is {self.name}, age is {self.age} and breed is {self.breed}")
+
+good_dog = Good_Dog("Tommy", 5, "Labrador")
+good_dog.display_info()
+#This is animal init
+#Dog name is Tommy, age is 5 and breed is Labrador
