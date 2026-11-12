@@ -103,3 +103,48 @@ class Better_Bank:
 better_acc = Better_Bank("Pritam", 2500)
 better_acc.get_balance()
 #Current Balance = 2500
+
+#----------------------------------
+#You can also make a method private by adding "__" as prefix
+#Let's implement a private function to check if server is live [obviously internal work]
+
+class Bankify:
+    def __init__(self, name: str, balance: int) -> None:
+        self.name = name
+        self.__balance = balance #This attribute is now private aka immutable outside said class.
+
+    def __isServerLive(self) -> bool: #This function is private.
+            return True
+        
+    def deposit(self, amount:int) ->None:
+        if self.__isServerLive:
+            self.__balance += amount
+            print(f"Amount deposited = {amount}, balance = {self.__balance}")
+        else: 
+            print("Server Down, Deposit Failed")
+
+    def withdraw(self, amount:int) ->None:
+        if self.__isServerLive:
+            if amount > self.__balance:
+                print(f"Withdraw Declined : Insufficient Fund, Current Balance = {self.__balance}")
+            else:
+                self.__balance -= amount
+                print(f"{amount} Withdraw Success, Balance = {self.__balance}")
+        else:
+            print("Server Down, Withdraw Failed")
+
+    def get_balance(self) -> None:
+        if self.__isServerLive:
+            print(f"Current Balance = {self.__balance}")
+        else:
+            print("Server Down, Balance Check Failed")
+
+    def set_balance(self,new_amount:int) -> None:
+        if self.__isServerLive:
+            self.__balance = new_amount
+        else:
+            print("Server Down, Updating Amount Failed")
+
+better_acc = Bankify("Pritam", 3000)
+better_acc.get_balance()
+# Current Balance = 3000
