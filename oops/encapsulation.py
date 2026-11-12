@@ -71,5 +71,5 @@ acc_new.withdraw(3000)
 # Withdraw Declined : Insufficient Fund, Current Balance = 1000
 # The balance attribute couldnot be accessed from outside class.
 # So, how to print balance attribute now that it is inaccessible via object.balance
-# You use "getters" aka attribute_getting_methods() to get attributes and 
-# "setters" aka attribute_setting_methods() to set attributes. 
+# You use "getters" aka attribute_getting_methods() to get private attributes and 
+# "setters" aka attribute_setting_methods() to set private attributes. 
