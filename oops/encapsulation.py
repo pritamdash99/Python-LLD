@@ -73,3 +73,33 @@ acc_new.withdraw(3000)
 # So, how to print balance attribute now that it is inaccessible via object.balance
 # You use "getters" aka attribute_getting_methods() to get private attributes and 
 # "setters" aka attribute_setting_methods() to set private attributes. 
+
+#----------------------------------
+
+class Better_Bank:
+    def __init__(self, name: str, balance: int) -> None:
+        self.name = name
+        self.__balance = balance #This attribute is now private aka immutable outside said class.
+        
+    def deposit(self, amount:int) ->None:
+        self.__balance += amount
+        print(f"Amount deposited = {amount}, balance = {self.__balance}")
+
+    def withdraw(self, amount:int) ->None:
+        if amount > self.__balance:
+            print(f"Withdraw Declined : Insufficient Fund, Current Balance = {self.__balance}")
+        else:
+            self.__balance -= amount
+            print(f"{amount} Withdraw Success, Balance = {self.__balance}")
+
+    def get_balance(self) -> None:
+        #This is a getter function
+        print(f"Current Balance = {self.__balance}")
+
+    def set_balance(self,new_amount:int) -> None:
+        #This is a just a setter example to set balance, in real world, balance is not set like this.
+        self.__balance = new_amount
+
+better_acc = Better_Bank("Pritam", 2500)
+better_acc.get_balance()
+#Current Balance = 2500
