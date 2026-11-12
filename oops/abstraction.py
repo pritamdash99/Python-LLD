@@ -14,3 +14,20 @@ If those 2 shape classes fail to create their versions of area() and perimeter()
 Also, the parent class Shape cannot have an object / instance, all operations must be carried out by the child classes.
 That's why it's called "Abstract Class", A class with no object of it's own, just useful children.
 """
+#You'll need to import this module
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+
+    @abstractmethod
+    def area(self):
+        pass #As I don't have anything to perform here.
+
+    @abstractmethod
+    def perimeter(self):
+        pass
+
+s = Shape()
+print(s)
+# TypeError: Can't instantiate abstract class Shape without an implementation for abstract methods 'area', 'perimeter'
+
