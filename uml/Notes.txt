@@ -1,0 +1,47 @@
+UNIFIED MODELING LANGUAGE DIAGRAMS - UML DIAGRAMS
+
+A UML DIAGRAM is a standard way to visually design and represent software systems using diagrams.
+The main purpose is to have a common visual language that shows - 
+    how classes, objects, relationships and interactions
+    work in a system.
+
+This makes it easier for developers and teams to -
+understand, discuss and plan the system before writing actual code.
+--------------------------------
+
+UML Diagram Importance - 
+
+1. Visualization - 
+They act as a blue print. 
+This makes it much easier to understand 
+    how different parts of the system are structured, 
+    how they connect and 
+    how they work together.
+
+2. Documentation - 
+They act as detailed documentation of your system design. 
+This is very helpful when you need to maintain the code later or when the system needs to grow.
+
+3. Communication - 
+They create a common language that designers, developers, and teams can all understand. 
+Everyone can look at the same diagram and discuss the design clearly without confusion.
+
+4. Standardization - 
+Since UML is a universally accepted standard, everyone in the software industry reads and understands these diagrams the same way. 
+No matter where you work, UML will be the same.
+--------------------------------
+
+BASIC ELEMENTS - 
+
+1. Class - 
+A blueprint / template for creating objects. 
+It has a name, properties(attributes), and actions(methods) that objects can perform.
+
+class User:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def login(self):
+        pass
+
