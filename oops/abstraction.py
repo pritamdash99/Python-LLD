@@ -17,6 +17,7 @@ That's why it's called "Abstract Class", A class with no object of it's own, jus
 And the child classes inheriting the Abstract Class = Concrete Classes
 """
 #You'll need to import this module
+#ABC = Abstract Base Classes
 from abc import ABC, abstractmethod
 
 class Shape(ABC):
@@ -92,3 +93,33 @@ circle.perimeter()
 # Circle Details - 
 # 31.400000000000002
 # 25
+
+"""
+ABSTRACTION VS INTERFACE
+
+In Python, an INTERFACE is a blueprint or contract that defines a set of methods and properties a class 
+    MUST implement, without providing the actual code for how those methods work.
+
+Unlike languages such as Java or C#, Python does not have a dedicated "interface" keyword.
+Instead developers use built-in language features to create and enforce interfaces.
+
+Abstraction is a broad concept that hides complex details and shows only the essentials, 
+whereas an interface is a specific tool used to achieve abstraction by 
+defining a STRICT CONTRACT OF METHODS a class MUST follow.
+
+Ex - 
+Think of a car. 
+ABSTRACTION is the dashboard - it hides the complex engine mechanics and 
+    gives you simple controls like a steering wheel and pedals.
+An INTERFACE is the universal rulebook that states -
+every car MUST have a steering wheel, brake pedal and gas pedal so any driver can operate it. 
+
+WHEN TO USE WHAT? 
+    Use an Abstract Class (Abstraction) when classes are closely related (like Dog, Cat) 
+        and you want to AVOID REPEATING SHARED CODE
+    
+    Use an Interface when unrelated classes (like Bird and Airplane) 
+        need to support the same action without sharing a family tree.
+
+Some More Examples - 
+"""
