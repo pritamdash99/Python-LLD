@@ -23,7 +23,7 @@ It sets a rule for child classes, but Python does not actually enforce it until 
 
 #The Interface [Rulebook]
 class Animal:
-    def speak(self):
+    def speak(self) -> str:
         raise NotImplementedError("Every animal must speak!")
 
 #Valid Child Class
@@ -47,7 +47,7 @@ fish = Fish()
 # NotImplementedError: Every animal must speak!
 
 """
-2. Formal Interface (abc.ABC - The "Strict Guard")
+2. FORMAL INTERFACE [abc.ABC - The "Strict Guard"]
 
 A formal interface uses Python's abc( Abstract Base Class) tool to 
     strictly enforce rules the exact moment you create an object.
@@ -64,7 +64,7 @@ from abc import ABC, abstractmethod
 #The interface - strict rulebook
 class Animal(ABC):
     @abstractmethod
-    def speak(self):
+    def speak(self) -> str:
         pass
 
 #Valid Child Class
@@ -78,7 +78,58 @@ class Snake(Animal):
 
 #Run the code
 cat = Cat()
-print(cat.speak)    #Output :Meow! 
+print(cat.speak())    #Output :Meow! 
 
 #snake = Snake() #Code CRASHED on this line.
 # TypeError: Can't instantiate abstract class Snake without an implementation for abstract method 'speak'
+
+"""
+3. STRUCTURAL INTERFACE [ typing.Protocol - The "CHECKLIST" ]
+
+A Protocol does not care about parent-child inheritance at all.
+It simply checks if an object has the right method name, like a checklist.
+
+- You define a Protocol listing the required methods. 
+    Any class that happens to have those exact methods automatically passes the check, even if the classes are unrelated.
+
+- Code Editors like VsCode any type checkers warn you with red underlines 
+    before you even run the code if an object fails the checklist.
+
+"""
+
+from typing import Protocol
+
+# The Interface [Checklist]
+class Speaker(Protocol):
+    def speak(self) -> str:
+        return ""
+
+# Unrelated class 1 [Does not inherit from Speaker]
+class Duck:
+    def speak(self) -> str:
+        return "Quack!"
+
+# Unrelated class 2 [Also does not inherit from Speaker]
+class Robot:
+    def speak(self) -> str:
+        return "Beep Boop!"
+
+# Unrelated class 3 [Missing speak()]
+class Rock:
+    def sit(self) ->None:
+        pass
+
+# Function that accepts anything on the checklist
+def make_it_talk(thing: Speaker) -> None:
+    print(thing.speak())
+
+# Run the code:
+print("-----------------")
+make_it_talk(Duck())
+make_it_talk(Robot())
+# Quack!
+# Beep Boop!
+
+#make_it_talk(Rock()) 
+# Code Editor flags red - Rock is incompatible with Protocol Speaker.
+
