@@ -46,3 +46,39 @@ fish = Fish()
 # Code crashed! 
 # NotImplementedError: Every animal must speak!
 
+"""
+2. Formal Interface (abc.ABC - The "Strict Guard")
+
+A formal interface uses Python's abc( Abstract Base Class) tool to 
+    strictly enforce rules the exact moment you create an object.
+
+- You inherit from ABC and put @abstractmethod above required methods.
+    Child classes MUST inherit from this class and implement the method. 
+
+- But, Python acts like a strict security guard. 
+    If a child class is missing said methods, Python blocks you from creating the object at all.
+"""
+
+from abc import ABC, abstractmethod
+
+#The interface - strict rulebook
+class Animal(ABC):
+    @abstractmethod
+    def speak(self):
+        pass
+
+#Valid Child Class
+class Cat(Animal):
+    def speak(self) -> str:
+        return "Meow!!"
+
+#Broken Child Class (Forgot to add speak)
+class Snake(Animal):
+    pass
+
+#Run the code
+cat = Cat()
+print(cat.speak)    #Output :Meow! 
+
+#snake = Snake() #Code CRASHED on this line.
+# TypeError: Can't instantiate abstract class Snake without an implementation for abstract method 'speak'
