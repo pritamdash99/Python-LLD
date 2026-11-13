@@ -185,3 +185,20 @@ launch_into_sky(my_plane)
 #Polymorphism in action - Even though Bird and Airplane are completely unrelated,
 #  launch_into_sky() runs both without caring what they are - it only cares that they have a .fly() method.
 
+"""
+Features                    Abstraction(Abstract Class)                             Interface
+
+What it is -            A design principle and partial blueprint.           A strict contract or rulebook.
+
+Method Code -           Can contain both empty (abstract) methods           Contains only method signatures (no actual Code).
+                        and working code.
+
+Variables / State -     Can store variables and manage object state         Generally does not store state or instance variables.
+                        (self.name).
+
+Purpose -               Shares common code among                            Guarentees unrelated classes share the exact same behavior.
+                        closely related classes.   
+
+In Python -             Built using abc.ABC with mix of regular and         Built using abc.ABC (with only abstract methods)
+                        @abstractmethod methods.                            or typing.Protocol
+"""
