@@ -122,4 +122,66 @@ WHEN TO USE WHAT?
         need to support the same action without sharing a family tree.
 
 Some More Examples - 
+Notice how Abstraction provides some ready-to-use code(sleep()), 
+while the Interface only lists rules (fly())
 """
+
+# 1. Abstraction (Partial Blueprint)
+# A parent Animal class gives all animals a working sleep() method, while forcing each animal to define its own sound()
+
+class Animal(ABC):
+    #Shared working code (Concrete method)
+    def sleep(self):
+        print("Zzz... Sleeping")
+
+    #Rule for child classes (Abstract method)
+    @abstractmethod
+    def sound(self):
+        pass
+
+class Dog(Animal):
+    def sound(self):
+        print("Woof!")
+
+dog = Dog()
+dog.sleep()
+dog.sound()
+# Zzz... Sleeping
+# Woof!
+
+# 2. Interface (Pure Contract)
+# A Flyable interface provides zero working code. 
+# It simply forces completely unrelated things 
+#   - like a Bird and an Airplane - to have fly() button
+
+from typing import Protocol
+
+#1. Pure rulebook (No working code inside) - Just Interface
+class Flyable(Protocol):
+    def fly(self) -> None:
+        pass
+#2. Classes that follow the interface
+class Bird:
+    def fly(self) -> None:
+        print("Flapping wings to fly")
+
+class Airplane:
+    def fly(self) -> None:
+        print("Starting jet engines to fly")
+
+#3. Create a function that uses the interface 
+def launch_into_sky(thing : Flyable) -> None:
+    thing.fly()
+
+#4. Code execution
+my_bird = Bird()
+my_plane = Airplane()
+
+launch_into_sky(my_bird)
+launch_into_sky(my_plane)
+# Flapping wings to fly
+# Starting jet engines to fly
+
+#Polymorphism in action - Even though Bird and Airplane are completely unrelated,
+#  launch_into_sky() runs both without caring what they are - it only cares that they have a .fly() method.
+
