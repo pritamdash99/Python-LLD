@@ -39,3 +39,14 @@ my_car.start_car()
 # Starting Toyota Fortuner...
 # Diesel engine started!
 # Car is ready to drive
+
+#Important - When we delete the car, engine is also destroyed! 
+print("\n --- Destroying the car ---")
+del my_car
+# Car deleted, Engine also deleted automatically!
+# We cannot access engine seperately - it was part of the car
+# Engine has no independent existence outside the Car
+print("Car and it's engine are both destroyed")
+
+# --- Destroying the car ---
+# Car and it's engine are both destroyed
