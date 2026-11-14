@@ -22,17 +22,17 @@ It sets a rule for child classes, but Python does not actually enforce it until 
 """
 
 #The Interface [Rulebook]
-class Animal:
+class Old_Animal:
     def speak(self) -> str:
         raise NotImplementedError("Every animal must speak!")
 
 #Valid Child Class
-class Dog(Animal):
+class Dog(Old_Animal):
     def speak(self) -> str:
         return "Woof!"
 
 #Broken Child Class (Forget to add speak)
-class Fish(Animal):
+class Fish(Old_Animal):
     pass
 
 #Running the code:
