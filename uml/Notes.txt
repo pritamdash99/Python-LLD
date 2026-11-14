@@ -45,3 +45,33 @@ class User:
     def login(self):
         pass
 
+2. Interface - 
+In Python, we use Abstract Classes to define WHICH METHODS a class MUST have.
+It tells what a class should do, NOT HOW TO DO IT.
+
+from abc import ABC, abstracmethod
+class Loginable(ABC):
+    @abstracmethod
+    def login(self):
+        pass
+
+3. Object - 
+A real working copy of a class created when the program runs.
+If class is a blueprint then object is the actual house built from the blueprint.
+Ex - user1 = User("Pritam",27)
+
+4. Association - 
+A connection between 2 classes showing how their objects interact or relate to each other. 
+
+5. Inheritance - 
+An "IS - A" relationship where a child class inherits properties and methods from a parent class.
+Ex - class Dog(Animal) , Dog IS-A Animal
+
+Composition - 
+A strong relationship where 1 object is made up of another object and cannot work without it.
+Ex - A Car "has-an" Engine - if the Car is Destroyed, the Engine is also Destroyed.
+
+Aggregation - 
+A weaker relationship where 1 object contains another object, but both can exist independently.
+Ex  - A classroom "has" Students - if the classroom closes, Students still exist.
+
