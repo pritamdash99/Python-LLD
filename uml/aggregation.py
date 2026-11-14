@@ -44,3 +44,10 @@ cs_dept.show_students()
 #   - Priya (Roll No : 10)
 #   - Prem (Roll No : 30)
 
+
+#IMPORTANT : Even if we delete the department, students still exist.
+del cs_dept #Department deleted
+
+#Students are still alive and can be used
+print(f"\nStudent still exists: {student1.get_name()}")
+#Student still exists: Pritam
