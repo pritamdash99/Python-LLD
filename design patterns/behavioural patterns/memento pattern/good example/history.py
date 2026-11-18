@@ -7,3 +7,10 @@ class History:
 
     def save_state(self, memento : TextMemento):
         self.__history.append(memento)
+
+    def get_history_list(self):
+        print(f"Curent history = \n")
+        for i in range(len(self.__history)):
+            print(f"{i} {self.__history[i].get_text()}")
+
+    
