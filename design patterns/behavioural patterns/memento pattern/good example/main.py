@@ -12,27 +12,30 @@ text_editor.write(" World")
 print(text_editor.get_text())
 # Hello World
 
-current_editor_state = text_editor.save_text() #This now becomes a memento object
-history.save_state(current_editor_state) #This appends the current state into history list
+#This now returns a memento object - text_editor.save_text()
+history.save_state(text_editor.save_text()) #This appends the current state into history list
+history.get_history_list()
+# Curent history =
+# 0 Hello World
 
 text_editor.write(" Good")
 text_editor.write(" Morning")
 
 # We can directly add the text_editor.save_text() as an argument as it returns a memento
 history.save_state(text_editor.save_text())
-
 history.get_history_list()
-# Curent history = 
-#
+#Curent history =
 # 0 Hello World
 # 1 Hello World Good Morning
-
-print("----------\n")
-history.undo()
-history.get_history_list()
-# Curent history = 
-#
-# 0 Hello World
+print("----------")
+print(text_editor.get_text())
+# Hello World Good Morning
 
 # Program seems to working, but only last part is remaining...
 # After undo, the last element of history list needs to be restored to the text editor.
+
+text_editor.restore(history.undo())
+print(text_editor.get_text())
+# Hello World
+
+# So for every undo, we get the result of the last saved history value.

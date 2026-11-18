@@ -11,3 +11,7 @@ class TextEditor:
 
     def save_text(self) -> TextMemento:
         return TextMemento(self.__text)
+    
+    #Restore the correct text value post Undo operation in history
+    def restore(self, memento : TextMemento):
+        self.__text = memento.get_text()
