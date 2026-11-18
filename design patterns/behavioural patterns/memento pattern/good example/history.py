@@ -13,4 +13,13 @@ class History:
         for i in range(len(self.__history)):
             print(f"{i} {self.__history[i].get_text()}")
 
-    
+    # UNDO Function
+    def undo(self) -> TextMemento:
+        if len(self.__history) > 0:
+            self.__history.pop()    # pops the last saved memento
+            if len(self.__history) == 0:
+                return TextMemento("")  #if post popping no element present return blank text memento object
+            else:
+                return self.__history[-1] # post popping - returns the current last memento object in the list
+        else:
+            return TextMemento("") #if at starting no element present return blank text memento object

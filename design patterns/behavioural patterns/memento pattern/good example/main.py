@@ -22,6 +22,17 @@ text_editor.write(" Morning")
 history.save_state(text_editor.save_text())
 
 history.get_history_list()
+# Curent history = 
+#
 # 0 Hello World
 # 1 Hello World Good Morning
 
+print("----------\n")
+history.undo()
+history.get_history_list()
+# Curent history = 
+#
+# 0 Hello World
+
+# Program seems to working, but only last part is remaining...
+# After undo, the last element of history list needs to be restored to the text editor.
