@@ -26,4 +26,19 @@ For now, it seems to be working, what if we need more Display Devices?
     Then adding "self.tv_display.update(self.__temperature)" inside update_temperature().
 
 You're changing the core Weather Station class again and again. BAD EXAMPLE.
+
+What we could do instead - 
+    As we're aware that all devices need an "update_temp()".
+    We create an Interface - Observer - abstract method - update_temp()
+    This interface is inherited by all necessary devices and each defines it's own update method.
+
+    Now we need a functionality to 
+        keep track of all observer inheriting classes and 
+        add or remove such devices from displaying weather changes. 
+
+        So we create a list of observer objects, 
+        we implement an add(observer) and remove(observer) inside the Weather Station class.
+
+        This way without hampering the core WS code we can add, remove devices from displaying temperature.
 """
+
