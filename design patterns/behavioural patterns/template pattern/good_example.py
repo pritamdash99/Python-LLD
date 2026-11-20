@@ -14,7 +14,7 @@ class DataParser(ABC) :
     @abstractmethod
     def _dataParser(self): pass
         
-    def _parse_template(self):
+    def parse_template(self):
         self._open()
         # logic for parsing - depends on respective inheriting classes's parse()
         self._dataParser() 
@@ -25,7 +25,7 @@ class CSVParser(DataParser):
         print("Parsing CSV File")
 
 csv_parser = CSVParser()
-csv_parser._parse_template()
+csv_parser.parse_template()
 # Opening the file
 # Parsing CSV File
 # Closing the file
@@ -37,7 +37,7 @@ class JSONParser(DataParser):
         print("Parsing JSON File")
 
 json_parser = JSONParser()
-json_parser._parse_template()
+json_parser.parse_template()
 # Opening the file
 # Parsing JSON File
 # Closing the file
