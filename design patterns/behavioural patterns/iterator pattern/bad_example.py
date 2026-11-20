@@ -1,5 +1,4 @@
-# Bad Example
-
+# Objective - Add songs to a playlist
 class Song:
     def __init__(self, title:str) -> None:
         self.__title = title
@@ -46,5 +45,8 @@ Inside the Playlist constructor, if we change the
 
     We won't be able iterate over the set as it's unordered, we'll have to try another aproach. 
     
-    So without the iterator pattern we had to make changes inside and outside the core code.
+    Without the iterator pattern we had to make changes inside and outside the core code.
+
+    So, we need a system to iterate through these Songs regardless of how they are stored internally.
+
 """
