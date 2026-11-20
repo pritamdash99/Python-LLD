@@ -38,4 +38,7 @@ So, we create an Interface "Order" which will have an abstract method "execute"
 And different type of orders such as "Burger Order", "Pizza Order" 
     will inherit the interface and call chef's cook_dish() in their own version of execute().
 So, while initialising all the order types we'll take a Chef instance as parameter.
+
+Inside the Waiter Class we'll have a method "take_order(Order)" which calls the respective order.execute()
+Now all the waiter needs to do is - take the order & execute task.
 """
