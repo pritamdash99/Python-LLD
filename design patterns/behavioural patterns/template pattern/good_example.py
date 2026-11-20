@@ -30,4 +30,14 @@ csv_parser._parse_template()
 # Parsing CSV File
 # Closing the file
 
+# Now if we need to add more parsers, we can simply inherit the Abstract Class and implement method
 
+class JSONParser(DataParser):
+    def _dataParser(self):
+        print("Parsing JSON File")
+
+json_parser = JSONParser()
+json_parser._parse_template()
+# Opening the file
+# Parsing JSON File
+# Closing the file
