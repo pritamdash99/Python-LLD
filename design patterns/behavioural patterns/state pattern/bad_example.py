@@ -53,6 +53,17 @@ transportService.give_directions()
 # Up the flyover
 
 """
+Problems in our code - 
 
+1. Messy if-else Chains and Tight Dependencies : 
+    The TransportService class relies heavily on if-else statements to check which 
+        transportation mode is active and then calculates travel time and routes accordingly.
+    When you keep adding more transportation options, these conditional checks grow 
+        longer and more complicated, making the code difficult to read and update.
+
+2. Breaking the Open / Closed Principle : 
+    Introducing a new transportation mode (like Airplane or Boat) means you have to
+        go back and modify the TransportService class itself, which violates the Open / Closed Principle. 
+        [code should be open for adding features but clossed for changing existing code]
 
 """
