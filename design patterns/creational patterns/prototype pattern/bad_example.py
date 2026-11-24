@@ -58,3 +58,25 @@ White Queen is at d2
 """
 
 # Now if you want to make changes or add new pieces you make them in new_chessBoard from this point forward.
+"""
+ISSUE - 
+1. A lot of manual copying is happening -> Error Prone Code
+2. We're making the clone manually outside class, it should happen inside the ChessBoard Class.
+3. The copying of chess pieces is currently manual, should be handled by ChessPiece class.
+
+Responsibilities per class isn't well defined.
+
+Solution - 
+
+The Prototype Pattern is perfect for board games 
+    when you need to save the current game state 
+    (including where all the pieces are positioned)
+    for features like - 
+        Undo / Redo, 
+        save points, or
+        creating a copy of the board for new player.
+
+Each chess piece has its own clone method, 
+    which means the entire board can be easily copied along with all the pieces 
+    in their current poistions by just 1 simple command instead of manually copying everything.
+"""
