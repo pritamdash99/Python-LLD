@@ -101,6 +101,9 @@ class RestaurantService:    #Job = Create Meal / Take Order
         desert.prepare()
         #Done
     
+    def changeCuisine(self, newCuisine : CuisineFactory) -> None:
+        self.__factory = newCuisine
+    
 northIndian = NorthIndianCuisine()
 service = RestaurantService(northIndian)
 service.create_meal()
@@ -109,3 +112,38 @@ service.create_meal()
 # Preparing Butter Chicken (North Indian Main Course)
 # Preparing Gulab Jamun (North Indian Desert)
 
+class SouthIndianCuisine(CuisineFactory):
+    def createStarter(self) -> Starter: 
+        return MeduVada()
+
+    def createMainCourse(self) -> MainCourse : 
+        return Dossa()
+
+    def createDesert(self) -> Desert : 
+        return Payasam()
+
+class ChineseCuisine(CuisineFactory):
+    def createStarter(self) -> Starter: 
+        return SpringRolls()
+
+    def createMainCourse(self) -> MainCourse : 
+        return FriedRice()
+
+    def createDesert(self) -> Desert : 
+        return FortuneCookie()
+
+southIndian = SouthIndianCuisine()
+service.changeCuisine(southIndian)
+service.create_meal()
+# Preparing Medu Vada (South Indian Starter)
+# Preparing Dossa (South Indian Main Course)
+# Preparing Payasam (South Indian Desert)
+
+chinese = ChineseCuisine()
+service.changeCuisine(chinese)
+service.create_meal()
+# Preparing Spring Rolls (Chinese Starter)
+# Preparing Fried Rice (Chinese Main Course)
+# Preparing Fortune Cookie (Chinese Desert)
+
+# Thus we no longer need to make any changes inside the client code.
