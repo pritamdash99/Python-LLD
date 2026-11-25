@@ -42,10 +42,10 @@ This is neither maintainable, nor scalable.
 Thus Decorator Pattern comes into place. 
 
 We'll keep the Beverage Interface and Coffee Class
-We'll have an AddOnDecorator Interface which always takes a Coffee Class inside __init__() and 
-has 2 abstract methods - get_description() & get_cost()
+We'll have an AddOnDecorator Class inherits Beverage and always takes a Coffee Class inside __init__() and 
+has 2 methods - get_description() & get_cost()
 
-The AddOnDecorator interface now gets inherited by other addons such as - 
+The AddOnDecorator class now gets inherited by other addons such as - 
     MilkDecorator - which accepts a coffee & adds milk inside the get_description() implementation
     WhippedDecorator - which accepts a coffee & adds whipped cream inside the get_description() implementation
     ...
