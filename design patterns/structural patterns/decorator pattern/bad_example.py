@@ -39,5 +39,15 @@ print("Rs.",coffeeWithMilk.get_cost())
 If we add x more sub classes we'll need 2 ^ x combinations = sub-class explosion
 This is neither maintainable, nor scalable.
 
+Thus Decorator Pattern comes into place. 
+
+We'll keep the Beverage Interface and Coffee Class
+We'll have an AddOnDecorator Interface which always takes a Coffee Class inside __init__() and 
+has 2 abstract methods - get_description() & get_cost()
+
+The AddOnDecorator interface now gets inherited by other addons such as - 
+    MilkDecorator - which accepts a coffee & adds milk inside the get_description() implementation
+    WhippedDecorator - which accepts a coffee & adds whipped cream inside the get_description() implementation
+    ...
 """
 
