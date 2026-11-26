@@ -26,17 +26,17 @@ class APIGateway:
         self.__order_service = OrderService()
 
     def login_user(self, username : str, password : str):
-        self.__user_service.login(username,password)
+        print(self.__user_service.login(username,password))
 
     def get_user_profile(self, userid : str): 
-        self.__user_service.get_profile(userid)
+        print(self.__user_service.get_profile(userid))
 
     def get_order_details(self, userid : str):
         print(self.__order_service.get_orders(userid))
 
     def get_all_details(self, userid : str, userName : str, pwd : str):
-        self.__user_service.login(userName,pwd)
-        self.__user_service.get_profile(userid)
+        print(self.__user_service.login(userName,pwd))
+        print(self.__user_service.get_profile(userid))
         print(self.__order_service.get_orders(userid))
 
 api_gateway = APIGateway()
@@ -52,14 +52,18 @@ api_gateway.get_all_details("NewID","newName","Password")
 """
 Client is making 3 separate API Calls
 [UserService] Logging in : Name1
+{'user_id': 'U123', 'name': 'Name1'}
 [UserService] Getting profile for : Uid1
+{'user_id': 'Uid1', 'name': 'Pritam', 'address': 'Bbsr'}
 [OrderService] Getting orders for : Uid1
 [{'order_id': 'ORD-1', 'total': 1500}, {'order_id': 'ORD-2', 'total': 3000}]
 
 --------------
 Client is making only 1 API Call
 [UserService] Logging in : newName
+{'user_id': 'U123', 'name': 'newName'}
 [UserService] Getting profile for : NewID
+{'user_id': 'NewID', 'name': 'Pritam', 'address': 'Bbsr'}
 [OrderService] Getting orders for : NewID
 [{'order_id': 'ORD-1', 'total': 1500}, {'order_id': 'ORD-2', 'total': 3000}]
 
