@@ -37,3 +37,24 @@ passenger3 = Passenger("Rocky", loc3)
 rideservice.add_passenger(passenger3)
 rideservice.book_ride(passenger3,10)
 # No Drivers Available for Pickup for Rocky
+
+"""
+ISSUES - 
+    (SRP)Single Responsibility Principle gets violated with RidesharingServiceApp class - 
+        It manages the drivers & passengers repository.
+        Bookride() is being managed here
+        Fare Calculation is being managed here
+    
+    OCP is getting violated as - 
+        Vehicle type is hard coded as string inside calculate fare
+        Tomorrow if there's another type, it'll be added inside core ridesharing class
+    
+    LSP is getting violated as we're matching with string..
+        vehicle.type == "Car"
+        All these vehicles could have been an interface
+        & later All new and old vehicle types could inherit the interface without core code change.
+
+    DIP is getting violated as RideSharingSeviceApp is high level but it has calculatefare() which is a low level.
+        Low level code updation should not affect the core high level code base.
+
+"""
