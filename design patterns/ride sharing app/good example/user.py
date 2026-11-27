@@ -16,3 +16,6 @@ class User(ABC):
 
     def set_location(self, newlocation : Location):
         self.location = newlocation
+
+    @abstractmethod
+    def notify(self, msg : str): pass

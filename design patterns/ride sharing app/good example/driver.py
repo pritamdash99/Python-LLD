@@ -10,4 +10,6 @@ class Driver(User):
 
     def getVehicle(self) -> Vehicle:
         return self.__vehicle
-    
+
+    def notify(self, msg : str):
+            print(f"Notify To Driver {self.name} = {msg}")

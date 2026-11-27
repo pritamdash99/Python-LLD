@@ -5,4 +5,8 @@ class Passenger(User):
     #Calling super() will give us the necessary data but 1 more data - Vehicle Type
     def __init__(self, name: str, email: str, location: Location) -> None:
         super().__init__(name, email, location)
-        
+
+    def notify(self, msg : str):
+        print(f"Notify To Passenger {self.name} = {msg}")
+
+    
