@@ -46,8 +46,11 @@ savings.withdraw(1500)
 # Insufficient Fund : Balance = 1200
 
 fd = FixedDeposit(3000)
-# fd.withdraw(10)
-# Exception: Cannot withdraw from FD
+try:
+    fd.withdraw(10)
+except Exception as e:
+    print("Exception found", e)
+# Exception found Cannot withdraw from FD
 
 # This is a bad example of code following Liskov Substitution Principle
 # As here fd.withdraw() is being forced to raise exception insted of steady running.
