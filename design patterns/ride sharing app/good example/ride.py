@@ -27,7 +27,10 @@ class Ride:
         self.status : RideStatus = RideStatus.SCHEDULED
 
     def calculate_fare(self):
-        return self.fare_strategy.calculateFare(self.driver.getVehicle(), self.distance)
+        self.fare = self.fare_strategy.calculateFare(self.driver.getVehicle(), self.distance)
+
+    def getRideFare(self) -> float:
+        return self.fare
 
     def updateStatus(self,new_ride_status : RideStatus):
         self.status = new_ride_status

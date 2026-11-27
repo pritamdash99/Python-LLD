@@ -2,6 +2,7 @@ from driver import Driver
 from passenger import Passenger
 from location import Location
 from fare_strategy import FareStrategy
+from ride import Ride, RideStatus
 #We'll maintain single responsibility - 
 class RideMatchingService:
     def __init__(self) -> None:
@@ -17,7 +18,17 @@ class RideMatchingService:
             return
         #Nearest Driver
         nearestDriver : Driver | None = self.findNearestDriver(passenger.get_location())
-        passenger.notify("Ride has been booked")
+        #Post finding nearestDriver, we remove it from our list as it'll be occupied with ride.
+        if nearestDriver is not None:
+            ride : Ride = Ride(passenger,nearestDriver,distance,strategy)
+            ride.calculate_fare()
+            passenger.notify(f"Ride Scheduled with fare Rs.{ride.getRideFare()}")
+            nearestDriver.notify(f"You have won new ride for Rs.{ride.getRideFare()}")
+            ride.updateStatus(RideStatus.ONGOING)
+
+            #Upon Completion
+            ride.updateStatus(RideStatus.COMPLETED)
+            self.availableDrivers.append(nearestDriver)
 
     def findNearestDriver(self, passenger_location : Location) -> Driver | None:
         assignedDriver = None
